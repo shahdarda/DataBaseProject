@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="1353.0" style="-fx-background-color: #fbf7ee;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.HelloController">
+    <ImageView fx:id="sacImg" fitHeight="136.0" fitWidth="150.0" layoutX="451.0" pickOnBounds="true">
+        <image>
+            <Image url="@../../../../../../icons/SacLogo.jpg" />
+        </image>
+    </ImageView>
+    <Label fx:id="userLbl" layoutX="405.0" layoutY="202.0" prefHeight="18.0" prefWidth="111.0" text="Username:">
+        <font>
+            <Font name="Bell MT Bold" size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="passLbl" layoutX="405.0" layoutY="265.0" prefHeight="18.0" prefWidth="111.0" text="Password:">
+        <font>
+            <Font name="Bell MT Bold" size="18.0" />
+        </font>
+    </Label>
+    <TextField fx:id="userTf" layoutX="518.0" layoutY="201.0" promptText="enter username" />
+    <Button fx:id="logInBtn" layoutX="611.0" layoutY="314.0" mnemonicParsing="false" onAction="#logInHandler" text="Log in">
+        <font>
+            <Font name="Arial Black" size="12.0" />
+        </font>
+    </Button>
+    <Line fx:id="line" endX="1280.800048828125" layoutX="74.0" layoutY="136.0" startX="-115.00001525878906" strokeWidth="2.0">
+        <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+                <stops>
+                    <Stop>
+                        <color>
+                            <Color />
+                        </color>
+                    </Stop>
+                    <Stop offset="1.0">
+                        <color>
+                            <Color red="0.6947368383407593" green="0.5146198868751526" blue="0.42456141114234924" />
+                        </color>
+                    </Stop>
+                </stops>
+            </LinearGradient>
+        </stroke>
+    </Line>
+    <VBox fx:id="menuVb" alignment="CENTER" layoutY="-1.0" prefHeight="531.0" prefWidth="202.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-background-color: #f7e9c6;" visible="false">
+        <children>
+            <HBox fx:id="customerHB" alignment="CENTER" prefHeight="55.0" prefWidth="180.0" style="-fx-background-color: #F7E9C6;">
+                <children>
+                    <ImageView fitHeight="55.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../../icons/Premium_Vector___Customer_buy_sale_item_in_online_shop_concept_illustration_in_outline_hand_drawn_design_style-removebg-preview.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="customerBtn" mnemonicParsing="false" onAction="#customerHandler" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #F7E9C6;" text="Customer">
+                        <font>
+                            <Font name="Bell MT Bold" size="19.0" />
+                        </font>
+                    </Button>
+                </children>
+            </HBox>
+            <HBox fx:id="materialHB" alignment="CENTER" prefHeight="54.0" prefWidth="180.0" style="-fx-background-color: #F7E9C6;">
+                <children>
+                    <ImageView fitHeight="55.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../../icons/Stylized_ball_of_yarn_with_knitting_needles_and_loose_yarn__Use_as_an___-removebg-preview.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="materialBtn" mnemonicParsing="false" onAction="#materialHandler" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #F7E9C6;" text="Material">
+                        <font>
+                            <Font name="Bell MT Bold" size="19.0" />
+                        </font>
+                    </Button>
+                </children>
+            </HBox>
+            <HBox fx:id="productHb" alignment="CENTER" prefHeight="54.0" prefWidth="180.0" style="-fx-background-color: #F7E9C6;">
+                <children>
+                    <ImageView fitHeight="55.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../../icons/Tote_Bag_free_vector_icons_designed_by_Darius_Dan-removebg-preview.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="productBtn" mnemonicParsing="false" onAction="#productHandler" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #F7E9C6;" text="Product">
+                        <font>
+                            <Font name="Bell MT Bold" size="19.0" />
+                        </font>
+                    </Button>
+                </children>
+            </HBox>
+            <HBox fx:id="OrderIHb" alignment="CENTER" prefHeight="54.0" prefWidth="180.0" style="-fx-background-color: #F7E9C6;">
+                <children>
+                    <ImageView fitHeight="55.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../../icons/Price_Tag_Icon-removebg-preview.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="orderIBtn" mnemonicParsing="false" onAction="#orderIHandler" prefHeight="55.0" prefWidth="124.0" style="-fx-background-color: #F7E9C6;" text="Order Item">
+                        <font>
+                            <Font name="Bell MT Bold" size="19.0" />
+                        </font>
+                    </Button>
+                </children>
+            </HBox>
+            <HBox fx:id="orderHb" alignment="CENTER" prefHeight="54.0" prefWidth="180.0" style="-fx-background-color: #F7E9C6;">
+                <children>
+                    <ImageView fitHeight="55.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../../icons/Shopping_Trolley_Clipart_Vector__Cart_Shopping_Trolley_Buy_Icon__Cart_Icons__Shopping_Icons__Buy_Icons_PNG_Image_For_Free_Download-removebg-preview.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="orderBtn" mnemonicParsing="false" onAction="#orderHandler" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #F7E9C6;" text="Order">
+                        <font>
+                            <Font name="Bell MT Bold" size="19.0" />
+                        </font>
+                    </Button>
+                </children>
+            </HBox>
+            <HBox fx:id="purchaseHb" alignment="CENTER" layoutX="10.0" layoutY="285.0" prefHeight="54.0" prefWidth="180.0" style="-fx-background-color: #F7E9C6;">
+                <children>
+                    <ImageView fitHeight="55.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../../icons/App_theme-removebg-preview.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="purchaseBtn" mnemonicParsing="false" onAction="#purchaseHandler" prefHeight="55.0" prefWidth="124.0" style="-fx-background-color: #F7E9C6;" text="Purchase">
+                        <font>
+                            <Font name="Bell MT Bold" size="19.0" />
+                        </font>
+                    </Button>
+                </children>
+            </HBox>
+            <HBox fx:id="deliveryHb" alignment="CENTER" layoutX="10.0" layoutY="230.0" prefHeight="54.0" prefWidth="180.0" style="-fx-background-color: #F7E9C6;">
+                <children>
+                    <ImageView fitHeight="55.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../../icons/Screenshot_2024-01-11_220446-removebg-preview.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="deliveryBtn" mnemonicParsing="false" onAction="#deliveryHandler" prefHeight="55.0" prefWidth="124.0" style="-fx-background-color: #F7E9C6;" text="Delivery">
+                        <font>
+                            <Font name="Bell MT Bold" size="19.0" />
+                        </font>
+                    </Button>
+                </children>
+            </HBox>
+        </children>
+    </VBox>
+    <PasswordField fx:id="passTf" layoutX="518.0" layoutY="263.0" promptText="enter password" />
+    <Label fx:id="userLblWarning" layoutX="518.0" layoutY="231.0" prefHeight="18.0" prefWidth="144.0" textFill="#e11f1f">
+        <font>
+            <Font name="Bell MT" size="12.0" />
+        </font>
+    </Label>
+    <Label fx:id="passLblWarning" layoutX="521.0" layoutY="295.0" prefHeight="18.0" prefWidth="144.0" textFill="#e11f1f">
+        <font>
+            <Font name="Bell MT" size="12.0" />
+        </font>
+    </Label>
+    <AnchorPane fx:id="PurchaseScreen" layoutX="202.0" layoutY="-3.0" prefHeight="486.0" prefWidth="926.0" visible="false">
+        <children>
+            <TableView fx:id="purchaseTable" layoutX="25.0" layoutY="22.0" prefHeight="207.0" prefWidth="572.0">
+                <columns>
+                    <TableColumn fx:id="PR_ID" prefWidth="100.0" text="Purchase ID" />
+                    <TableColumn fx:id="Order_ID" prefWidth="100.0" text="Order ID" />
+                    <TableColumn fx:id="PaymentMethod" prefWidth="100.0" text="PaymentMethod" />
+                    <TableColumn fx:id="TransactionStatus" prefWidth="132.79998779296875" text="TransactionStatus" />
+                    <TableColumn fx:id="PaymentConfirmation" prefWidth="144.800048828125" text="PaymentConfirmation" />
+                </columns>
+            </TableView>
+            <VBox fx:id="purchaseVb1" alignment="CENTER_LEFT" layoutX="628.0" layoutY="73.0" prefHeight="288.0" prefWidth="272.0" spacing="10.0">
+                <children>
+                    <HBox prefHeight="39.0" prefWidth="166.0">
+                        <children>
+                            <Label prefHeight="22.0" prefWidth="134.0" text="Purchase ID:">
+                                <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                </font>
+                            </Label>
+                            <TextField fx:id="purchaseIdTf1" />
+                        </children>
+                    </HBox>
+                    <HBox layoutX="10.0" layoutY="188.0" prefHeight="39.0" prefWidth="166.0">
+                        <children>
+                            <Label prefHeight="22.0" prefWidth="134.0" text="Order ID:">
+                                <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                </font>
+                            </Label>
+                            <TextField fx:id="orderIdTf1" />
+                        </children>
+                    </HBox>
+                    <HBox layoutX="10.0" layoutY="164.0" prefHeight="39.0" prefWidth="166.0">
+                        <children>
+                            <Label prefHeight="22.0" prefWidth="143.0" text="Payment Method:">
+                                <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                </font>
+                            </Label>
+                            <ComboBox fx:id="paymentMethodCombo" prefWidth="150.0" />
+                        </children>
+                    </HBox>
+                    <HBox layoutX="10.0" layoutY="213.0" prefHeight="39.0" prefWidth="166.0">
+                        <children>
+                            <Label prefHeight="22.0" prefWidth="173.0" text="Transaction Status:">
+                                <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                </font>
+                            </Label>
+                            <ComboBox fx:id="transactionStatusCombo" prefWidth="150.0" />
+                        </children>
+                    </HBox>
+                    <HBox layoutX="10.0" layoutY="238.0" prefHeight="39.0" prefWidth="166.0">
+                        <children>
+                            <Label prefHeight="22.0" prefWidth="230.0" text="Payment Confirmation:">
+                                <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                </font>
+                            </Label>
+                            <ComboBox fx:id="paymentConfCombo" prefWidth="150.0" />
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+            <Button fx:id="searchPurchase" layoutX="851.0" layoutY="383.0" mnemonicParsing="false" onAction="#SearchPurchaseHandler" text="Search">
+                <font>
+                    <Font name="Arial Black" size="13.0" />
+                </font>
+            </Button>
+            <Button fx:id="deletePurchase1" layoutX="666.0" layoutY="383.0" mnemonicParsing="false" onAction="#deletePurchaseHandler" text="Delete">
+                <font>
+                    <Font name="Arial Black" size="13.0" />
+                </font>
+            </Button>
+            <Button fx:id="clearPurchase" layoutX="751.0" layoutY="383.0" mnemonicParsing="false" onAction="#clearPurchaseHandler" text="Clear all">
+                <font>
+                    <Font name="Arial Black" size="13.0" />
+                </font>
+            </Button>
+            <StackedBarChart fx:id="purchaseChart" layoutX="25.0" layoutY="243.0" prefHeight="207.0" prefWidth="572.0" title="Purchase Chart">
+                <xAxis>
+                    <CategoryAxis label="Transaction Status" side="BOTTOM" fx:id="xAxis" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="yAxis" label="Purchases" side="LEFT" />
+                </yAxis>
+            </StackedBarChart>
+         <Button fx:id="calculatePurchaseButton" layoutX="640.0" layoutY="425.0" mnemonicParsing="false" onAction="#calculatePurchaseOnClick" text="CalculatePurchases">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+         <Label fx:id="resultLabel" layoutX="777.0" layoutY="429.0" opacity="0.63" prefHeight="22.0" prefWidth="124.0" style="-fx-background-color: #faa5a5;" />
+         <Button fx:id="viewDataButton" layoutX="640.0" layoutY="460.0" mnemonicParsing="false" onAction="#viewData_on_Click" text="ViewData">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+        </children>
+    </AnchorPane>
+   <AnchorPane fx:id="OrderScreen1" layoutX="212.0" layoutY="6.0" prefHeight="486.0" prefWidth="926.0" visible="false">
+      <children>
+         <TableView fx:id="orderTable1" layoutX="25.0" layoutY="22.0" prefHeight="207.0" prefWidth="434.0">
+            <columns>
+               <TableColumn fx:id="Order_ID1" prefWidth="100.0" text="Order ID" />
+               <TableColumn fx:id="Customer_ID1" prefWidth="100.0" text="Customer ID" />
+               <TableColumn fx:id="dateColumn" prefWidth="100.0" text="Date" />
+               <TableColumn fx:id="totalAmount" prefWidth="132.79998779296875" text="Total Amount" />
+            </columns>
+         </TableView>
+         <VBox fx:id="purchaseVb11" alignment="CENTER_LEFT" layoutX="479.0" layoutY="14.0" prefHeight="229.0" prefWidth="272.0" spacing="10.0">
+            <children>
+               <HBox prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label fx:id="o_id" prefHeight="22.0" prefWidth="134.0" text="Order ID:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="orderIdTf11" onAction="#orderId_on_click" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="188.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label fx:id="customer_id" prefHeight="22.0" prefWidth="134.0" text="Customer ID:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="customerIDTf11" onAction="#customerId_on_click" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="164.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="143.0" text="Date:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <DatePicker fx:id="date_picker" promptText="Choose Date" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="213.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Button fx:id="getOrderAmountButton" mnemonicParsing="false" onAction="#getOrderAmountHandler" text="Get Order Amount">
+                        <font>
+                           <Font name="System Bold" size="12.0" />
+                        </font>
+                     </Button>
+                     <Label fx:id="getOrderAmountLabel1" opacity="0.78" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #adf264;" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="238.0" prefHeight="39.0" prefWidth="166.0" />
+            </children>
+         </VBox>
+         <Button fx:id="searchOrder1" layoutX="576.0" layoutY="288.0" mnemonicParsing="false" onAction="#SearchOrderHandler" text="Search">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="deleteOrder1" layoutX="492.0" layoutY="288.0" mnemonicParsing="false" onAction="#deleteOrderHandler" text="Delete">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="clearOrder1" layoutX="576.0" layoutY="334.0" mnemonicParsing="false" onAction="#clearOrderHandler" text="Clear all">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="viewOrderDataButton" layoutX="488.0" layoutY="333.0" mnemonicParsing="false" onAction="#viewOrderData_on_Click" prefHeight="30.0" prefWidth="78.0" text="ViewData">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+         <Label fx:id="totalAmountLabel" layoutX="625.0" layoutY="375.0" opacity="0.78" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #d7c0c0;" />
+         <Button fx:id="calculate_total_amount" layoutX="488.0" layoutY="374.0" mnemonicParsing="false" onAction="#calc_total_amount_on_click" prefHeight="29.0" prefWidth="127.0" text="Calculate Total Amount">
+            <font>
+               <Font name="System Bold" size="10.0" />
+            </font>
+         </Button>
+         <Label layoutX="378.0" layoutY="431.0" prefHeight="18.0" prefWidth="219.0" text="Calculate Total Amount in Specific Date:" />
+         <DatePicker fx:id="fromDatePicker" layoutX="597.0" layoutY="427.0" prefHeight="26.0" prefWidth="96.0" promptText="From" />
+         <Label layoutX="701.0" layoutY="431.0" text="to:" />
+         <DatePicker fx:id="toDatePicker" layoutX="722.0" layoutY="426.0" onAction="#toDatePickerHandler" prefHeight="26.0" prefWidth="96.0" promptText="To:" />
+         <Label fx:id="resultOfDateLabel" layoutX="826.0" layoutY="431.0" prefHeight="22.0" prefWidth="87.0" style="-fx-background-color: #8fa7ff;" />
+         <BarChart fx:id="OrderChart" layoutX="25.0" layoutY="259.0" prefHeight="207.0" prefWidth="354.0">
+           <xAxis>
+             <CategoryAxis side="BOTTOM" />
+           </xAxis>
+           <yAxis>
+             <NumberAxis side="LEFT" />
+           </yAxis>
+         </BarChart>
+         <ComboBox fx:id="selectPaymentMethodCombo" layoutX="737.0" layoutY="288.0" prefHeight="26.0" prefWidth="176.0" promptText="Select Payment Method" />
+         <ComboBox fx:id="selectShippingCompany" layoutX="729.0" layoutY="335.0" prefHeight="26.0" prefWidth="184.0" promptText="Select Shipping Company" />
+         <Button fx:id="addOrder" layoutX="657.0" layoutY="286.0" mnemonicParsing="false" onAction="#addOrderHandler" prefHeight="27.0" prefWidth="70.0" text="Add">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
+   <AnchorPane fx:id="MaterialScreen" layoutX="212.0" layoutY="9.0" prefHeight="486.0" prefWidth="1116.0" visible="false">
+      <children>
+         <TableView fx:id="MaterialTable" layoutX="23.0" layoutY="30.0" prefHeight="207.0" prefWidth="728.0">
+            <columns>
+               <TableColumn fx:id="M_idCol" prefWidth="70.0" text="Material ID" />
+               <TableColumn fx:id="M_nameCol" prefWidth="93.0" text="Material Name" />
+               <TableColumn fx:id="S_infoCol" prefWidth="132.0" text="Supplier Contact Info" />
+               <TableColumn fx:id="U_coastCol" prefWidth="78.0" text="Unit Cost" />
+               <TableColumn fx:id="Stock_quantityCol" prefWidth="114.0" text="Stock Quantity" />
+               <TableColumn fx:id="SupplierCol" prefWidth="104.0" text="Supplier" />
+               <TableColumn fx:id="DescriptionCol" prefWidth="135.0" text="Description" />
+            </columns>
+         </TableView>
+         <VBox fx:id="MaterialVb" alignment="CENTER_LEFT" layoutX="766.0" layoutY="59.0" prefHeight="288.0" prefWidth="348.0" spacing="10.0">
+            <children>
+               <HBox prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="152.0" text="Material ID">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="addM_id" />
+                     <Button fx:id="searchMaterialId" mnemonicParsing="false" onAction="#searchMaterialIdHandler" prefHeight="16.0" prefWidth="44.0" text="find">
+                        <font>
+                           <Font name="Arial Black" size="10.0" />
+                        </font>
+                     </Button>
+                  </children>
+               </HBox>
+               <HBox prefHeight="39.0" prefWidth="338.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="152.0" text="Material Name">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="addM_name" />
+                     <Button fx:id="searchMaterialName" mnemonicParsing="false" onAction="#searchMaterialNameHandler" prefHeight="16.0" prefWidth="44.0" text="find">
+                        <font>
+                           <Font name="Arial Black" size="10.0" />
+                        </font>
+                     </Button>
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="135.0" prefHeight="39.0" prefWidth="270.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="151.0" text="Supplier Contact Info">
+                        <font>
+                           <Font name="Bell MT" size="14.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="addS_info" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="152.0" text="Unit Cost">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="addU_coast" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="152.0" text="Stock Quantity">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="addStock_quantity" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="152.0" text="Supplier">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="addSupplier" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="152.0" text="Description">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="addDescription" />
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+         <Button fx:id="addMaterial" layoutX="988.0" layoutY="347.0" mnemonicParsing="false" onAction="#addMaterialHandler" text="ADD">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="ResetMaterial" layoutX="1047.0" layoutY="347.0" mnemonicParsing="false" onAction="#ResetMaterialHandler" text="Reset">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <StackedBarChart fx:id="MaterialChart" layoutX="23.0" layoutY="236.0" prefHeight="251.0" prefWidth="728.0">
+            <xAxis>
+               <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+               <NumberAxis side="LEFT" />
+            </yAxis>
+         </StackedBarChart>
+         <Button fx:id="produceWhiteBag" layoutX="755.0" layoutY="392.0" mnemonicParsing="false" onAction="#produceWhiteBagHandler" prefHeight="28.0" prefWidth="170.0" text="Produce White Bag">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="produceBlackBag" layoutX="940.0" layoutY="392.0" mnemonicParsing="false" onAction="#produceBlackbagHandler" prefHeight="28.0" prefWidth="170.0" text="Produce Black Bag">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
+   <AnchorPane fx:id="DeliveryScreen" layoutX="212.0" layoutY="7.0" prefHeight="486.0" prefWidth="1078.0" visible="false">
+      <children>
+         <TableView fx:id="DeliveryTable" layoutX="23.0" layoutY="30.0" prefHeight="221.0" prefWidth="728.0">
+            <columns>
+               <TableColumn fx:id="delivery_id" prefWidth="70.0" text="Delivery ID" />
+               <TableColumn fx:id="order_id" prefWidth="64.0" text="Order ID" />
+               <TableColumn fx:id="delivery_date" prefWidth="86.0" text="Delivery Date" />
+               <TableColumn fx:id="Estimated_Delivery_Time" prefWidth="153.0" text="Estimated Delivery Time" />
+               <TableColumn fx:id="delivery_status" prefWidth="96.0" text="Delivery Status" />
+               <TableColumn fx:id="shipping_company" prefWidth="131.0" text="Shipping Company" />
+               <TableColumn fx:id="delivery_address" prefWidth="126.0" text="Delivery Address" />
+            </columns>
+         </TableView>
+         <VBox fx:id="DeliveryVb" alignment="CENTER_LEFT" layoutX="766.0" layoutY="59.0" prefHeight="288.0" prefWidth="306.0" spacing="10.0">
+            <children>
+               <HBox prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="152.0" text="Delivery ID:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="delivery_IdTf" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="152.0" text="Order ID:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="Order_Id_DeliveryTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="135.0" prefHeight="39.0" prefWidth="270.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="151.0" text="Shipping Company:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="Shipping_companyTf" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="39.0" prefWidth="270.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="151.0" text="Delivery Status:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <ComboBox fx:id="delivery_statusCHB" prefWidth="150.0" />
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+         <Button fx:id="search_delivery" layoutX="911.0" layoutY="347.0" mnemonicParsing="false" onAction="#searchDeliveryHandler" text="Search">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="deleteDelivery" layoutX="753.0" layoutY="347.0" mnemonicParsing="false" onAction="#deleteDeliveryHandler" text="Delete">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="clearDelivery" layoutX="827.0" layoutY="347.0" mnemonicParsing="false" onAction="#clearDeliveryHandler" text="Clear all">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <StackedBarChart fx:id="deliveryChart" layoutX="-6.0" layoutY="265.0" prefHeight="221.0" prefWidth="759.0">
+            <xAxis>
+               <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+               <NumberAxis side="LEFT" />
+            </yAxis>
+         </StackedBarChart>
+         <Button fx:id="Reset_btn" layoutX="988.0" layoutY="347.0" mnemonicParsing="false" onAction="#resetHandler" text="Reset">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
+   <AnchorPane fx:id="orderItemScreen" layoutX="212.0" layoutY="9.0" prefHeight="486.0" prefWidth="854.0" visible="false">
+      <children>
+         <TableView fx:id="orderItemTable" layoutX="283.0" layoutY="23.0" prefHeight="362.0" prefWidth="402.0">
+            <columns>
+               <TableColumn fx:id="productIdC" prefWidth="100.0" text="Product ID" />
+               <TableColumn fx:id="orderIdC" prefWidth="100.0" text="Order ID" />
+               <TableColumn fx:id="quantityC" prefWidth="100.0" text="Quantity" />
+               <TableColumn fx:id="subtotalC" prefWidth="100.0" text="Subtotal" />
+            </columns>
+         </TableView>
+         <VBox fx:id="orderItemVb" alignment="CENTER_LEFT" layoutX="748.0" layoutY="23.0" prefHeight="224.0" prefWidth="272.0" spacing="10.0">
+            <children>
+               <HBox prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Order ID:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="orderIdTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="188.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Product ID:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="productIdTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="164.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Quantity:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="quanityTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="213.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Subtotal:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="subtotalTf" />
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+         <Button fx:id="deleteOrderItem" layoutX="528.0" layoutY="395.0" mnemonicParsing="false" onAction="#deleteOrderItemHandler" text="Delete">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="clearOrderItem" layoutX="607.0" layoutY="395.0" mnemonicParsing="false" onAction="#clearOrderItemHandler" text="Clear all">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="addOrderItem" layoutX="974.0" layoutY="233.0" mnemonicParsing="false" onAction="#addOrderItemHandler" text="Add">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Label fx:id="avgPrice1" alignment="CENTER" layoutX="24.0" layoutY="36.0" prefHeight="22.0" prefWidth="87.0" style="-fx-background-color: #B39B7F;" text="Sort By:">
+            <font>
+               <Font name="Arial Bold" size="15.0" />
+            </font>
+         </Label>
+         <ComboBox fx:id="sortOrderItemBy" layoutX="120.0" layoutY="35.0" onAction="#sortOrderItemTableHandler" prefWidth="150.0" promptText="Choose a Category" />
+         <Button fx:id="orderItemTotalQuantity" layoutX="748.0" layoutY="294.0" mnemonicParsing="false" onAction="#orderItemTotalQuantityHandler" prefHeight="24.0" prefWidth="111.0" text="Total quantity">
+            <font>
+               <Font name="Arial Black" size="11.0" />
+            </font>
+         </Button>
+         <Label fx:id="totalQuantity" alignment="CENTER" layoutX="871.0" layoutY="295.0" prefHeight="22.0" prefWidth="87.0" style="-fx-background-color: #B39B7F;">
+            <font>
+               <Font name="Arial Bold" size="15.0" />
+            </font>
+         </Label>
+         <Button fx:id="orderItemTotalPrice" layoutX="748.0" layoutY="331.0" mnemonicParsing="false" onAction="#orderItemTotalPriceHandler" prefHeight="24.0" prefWidth="111.0" text="Total price">
+            <font>
+               <Font name="Arial Black" size="11.0" />
+            </font>
+         </Button>
+         <Label fx:id="totalSubTotals" alignment="CENTER" layoutX="871.0" layoutY="332.0" prefHeight="22.0" prefWidth="87.0" style="-fx-background-color: #C9F6C3;">
+            <font>
+               <Font name="Arial Bold" size="15.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
+   <AnchorPane fx:id="productScreen" layoutX="212.0" layoutY="8.0" prefHeight="486.0" prefWidth="854.0" visible="false">
+      <children>
+         <TableView fx:id="productTable" layoutX="162.0" layoutY="30.0" prefHeight="246.0" prefWidth="500.0">
+            <columns>
+               <TableColumn fx:id="p_id" prefWidth="100.0" text="Product ID" />
+               <TableColumn fx:id="p_name" prefWidth="100.0" text="Product Name" />
+               <TableColumn fx:id="price" prefWidth="100.0" text="Price" />
+               <TableColumn fx:id="stockQuan" prefWidth="100.0" text="Stock Quantity" />
+               <TableColumn fx:id="description" prefWidth="100.0" text="Description" />
+            </columns>
+         </TableView>
+         <VBox fx:id="customerVb1" alignment="CENTER_LEFT" layoutX="672.0" layoutY="21.0" prefHeight="264.0" prefWidth="272.0" spacing="10.0">
+            <children>
+               <HBox prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Product ID:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="p_IdTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="188.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Product Name:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="productNameTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="164.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Price:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="priceTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="213.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Stock Quantity:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="stockQuanTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="238.0" prefHeight="34.0" prefWidth="272.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Description:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="productDescriptionTf" />
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+         <Button fx:id="addProduct" layoutX="898.0" layoutY="293.0" mnemonicParsing="false" onAction="#addProductHandler" text="Add">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="deleteProduct" layoutX="789.0" layoutY="293.0" mnemonicParsing="false" onAction="#deleteProductHandler" text="Delete">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="clearProduct" layoutX="673.0" layoutY="293.0" mnemonicParsing="false" onAction="#clearProductHandler" text="Clear all">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="searchByProductName" layoutX="955.0" layoutY="84.0" mnemonicParsing="false" onAction="#searchByProductNameHandler" text="search by name">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <StackedBarChart fx:id="productChart" layoutX="149.0" layoutY="350.0" prefHeight="135.0" prefWidth="509.0">
+            <xAxis>
+               <CategoryAxis label="Product Name" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+               <NumberAxis label="Stock Quantity" side="LEFT" />
+            </yAxis>
+         </StackedBarChart>
+         <Button fx:id="totalStockQuantityBtn" layoutX="673.0" layoutY="335.0" mnemonicParsing="false" onAction="#totalStockQuantityBtnHandler" prefHeight="30.0" prefWidth="170.0" text="Total Stock Quantity:" wrapText="true">
+            <font>
+               <Font name="Arial Black" size="11.0" />
+            </font>
+         </Button>
+         <Label fx:id="totalStockQuantity" alignment="CENTER" layoutX="853.0" layoutY="339.0" prefHeight="22.0" prefWidth="87.0" style="-fx-background-color: pink;">
+            <font>
+               <Font name="Arial Bold" size="15.0" />
+            </font>
+         </Label>
+         <Button fx:id="avgPriceBtn" layoutX="672.0" layoutY="377.0" mnemonicParsing="false" onAction="#avgPriceBtnHandler" prefHeight="30.0" prefWidth="170.0" text="Average Price:" wrapText="true">
+            <font>
+               <Font name="Arial Black" size="11.0" />
+            </font>
+         </Button>
+         <Label fx:id="avgPrice" alignment="CENTER" layoutX="854.0" layoutY="381.0" prefHeight="22.0" prefWidth="87.0" style="-fx-background-color: #B39B7F;">
+            <font>
+               <Font name="Arial Bold" size="15.0" />
+            </font>
+         </Label>
+         <Button fx:id="mostExpProBtn" layoutX="672.0" layoutY="417.0" mnemonicParsing="false" onAction="#mostExpProBtnHandler" prefHeight="30.0" prefWidth="170.0" text="Most Expensive Product:" wrapText="true">
+            <font>
+               <Font name="Arial Black" size="11.0" />
+            </font>
+         </Button>
+         <Label fx:id="mostExpPro" alignment="CENTER" layoutX="854.0" layoutY="421.0" prefHeight="22.0" prefWidth="87.0" style="-fx-background-color: #BBC48E;">
+            <font>
+               <Font name="Arial Bold" size="15.0" />
+            </font>
+         </Label>
+         <Button fx:id="cheapestProBtn" layoutX="673.0" layoutY="457.0" mnemonicParsing="false" onAction="#cheapestProBtnHandler" prefHeight="30.0" prefWidth="170.0" text="Cheapest Product:" wrapText="true">
+            <font>
+               <Font name="Arial Black" size="11.0" />
+            </font>
+         </Button>
+         <Label fx:id="cheapestPro" alignment="CENTER" layoutX="853.0" layoutY="461.0" prefHeight="22.0" prefWidth="87.0" style="-fx-background-color: #CEC3F6;">
+            <font>
+               <Font name="Arial Bold" size="15.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
+   <AnchorPane fx:id="customerScreen" layoutX="212.0" layoutY="9.0" prefHeight="486.0" prefWidth="854.0" visible="false">
+      <children>
+         <TableView fx:id="customerTable" layoutX="148.0" layoutY="30.0" prefHeight="343.0" prefWidth="500.0">
+            <columns>
+               <TableColumn fx:id="c_id" prefWidth="100.0" text="Customer ID" />
+               <TableColumn fx:id="c_name" prefWidth="100.0" text="Customer Name" />
+               <TableColumn fx:id="email" prefWidth="100.0" text="Email" />
+               <TableColumn fx:id="phone" prefWidth="100.0" text="Phone Number" />
+               <TableColumn fx:id="address" prefWidth="100.0" text="Address" />
+            </columns>
+         </TableView>
+         <VBox fx:id="customerVb" alignment="CENTER_LEFT" layoutX="673.0" layoutY="30.0" prefHeight="288.0" prefWidth="272.0" spacing="10.0">
+            <children>
+               <HBox prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Customer ID:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="customerIdTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="188.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Customer Name:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="customerNameTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="164.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Email:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="emailTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="213.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Phone Number:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="CustomerNumberTf" />
+                  </children>
+               </HBox>
+               <HBox layoutX="10.0" layoutY="238.0" prefHeight="39.0" prefWidth="166.0">
+                  <children>
+                     <Label prefHeight="22.0" prefWidth="134.0" text="Address:">
+                        <font>
+                           <Font name="Bell MT" size="18.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="customerAdressTf" />
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+         <Button fx:id="addCustomer" layoutX="899.0" layoutY="311.0" mnemonicParsing="false" onAction="#addCustomerHandler" text="Add">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="deleteCustomer" layoutX="492.0" layoutY="388.0" mnemonicParsing="false" onAction="#deleteCustomerHandler" text="Delete">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="clearCustomers" layoutX="570.0" layoutY="388.0" mnemonicParsing="false" onAction="#clearCustomersHandler" text="Clear all">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font>
+         </Button>
+         <Button fx:id="filterAddressBtn" layoutX="681.0" layoutY="311.0" mnemonicParsing="false" onAction="#filterAddressBtnHandler" prefHeight="28.0" prefWidth="202.0" text="Filter customers by address" wrapText="true">
+            <font>
+               <Font name="Arial Black" size="11.0" />
+            </font>
+         </Button>
+         <Button fx:id="filterNameBtn" layoutX="681.0" layoutY="345.0" mnemonicParsing="false" onAction="#filterNameBtnHandler" prefHeight="28.0" prefWidth="202.0" text="Filter customers by name" wrapText="true">
+            <font>
+               <Font name="Arial Black" size="11.0" />
+            </font>
+         </Button>
+         <Button fx:id="totalCustomerCount" layoutX="681.0" layoutY="388.0" mnemonicParsing="false" onAction="#totalCustomerCountHandler" prefHeight="28.0" prefWidth="202.0" text="Total customers number">
+            <font>
+               <Font name="Arial Black" size="11.0" />
+            </font>
+         </Button>
+         <Label fx:id="totalCusNum" alignment="CENTER" layoutX="891.0" layoutY="391.0" prefHeight="22.0" prefWidth="87.0" style="-fx-background-color: #B39B7F;">
+            <font>
+               <Font name="Arial Bold" size="15.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
+
+</AnchorPane>
